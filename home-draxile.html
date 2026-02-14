@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <title>draxile.io</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/4RvPH6vB/logodraxile.png">
+  <style>
+    html {
+  scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 2000px;
+      background-image: url('https://i.ibb.co/RdWw2N0/bgdraxile.png" alt="bgdraxile"');
+        background-size: 300px 300px;
+        
+    }
+
+    /* WebKit scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      background: black;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgb(177, 5, 28);
+      border-radius: 0px;
+      border: none;
+    }
+
+    /* Black background bar */
+    .navbar-bg {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 85px;
+      background-color: black;
+      transform: translateY(-65px); /* ← adjust this to control visibility */
+      transition: transform 0.4s ease;
+      z-index: 10;
+    }
+
+    .navbar-bg.visible {
+      transform: translateY(0px);
+    }
+
+    /* White text on top */
+    .navbar-text {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 84px;
+      display: flex;
+      align-items: center;
+      gap: 2.8rem;
+      z-index: 2;
+      justify-content: flex-start;
+      padding-left: 702px; /* ← adjust this to align nav links */
+      z-index: 10;
+    }
+
+    .navbar-text a {
+      color: white;
+      font-family: 'Inter';
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.4rem;
+      z-index: 11;
+    }
+
+    .navbar-text a:hover {
+      color: rgb(196, 196, 196); /* ← this is the only new line added */
+    }
+
+    .content {
+      padding-top: 100px;
+    }
+
+
+    .left-grey-square {
+      position: absolute;        /* lets you move it freely */
+      top: 412px;                /* change to move up/down */
+      left: 244px;               /* change to move left/right */
+      width: 360px;              /* adjust width */
+      height: 532px;             /* adjust height */
+      background-color: #151515;    /* the square's color */
+      border-radius: 6px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+      box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    .left-light-square {
+      position: absolute;        /* lets you move it freely */
+      top: 486px;                /* change to move up/down */
+      left: 257px;               /* change to move left/right */
+      width: 334px;              /* adjust width */
+      height: 445px;             /* adjust height */
+      background-color: #252627;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+    }
+
+        .left-black-square {
+      position: absolute;        /* lets you move it freely */
+      top: 424px;                /* change to move up/down */
+      left: 257px;               /* change to move left/right */
+      width: 334px;              /* adjust width */
+      height: 7px;             /* adjust height */
+      background-color: #020202;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+    }
+
+    .light-square-text {
+  position: relative;         /* lets you adjust position inside square */
+  top: -22px;                  /* move down */
+  left: 26px;                  /* move right */
+  font-size: 15px;            /* change text size */
+  font-family: 'Inter'; /* match font */
+  color: white;               /* text color */
+}
+
+    .black-square-text {
+  position: relative;         /* lets you adjust position inside square */
+  top: -20px;                  /* move down */
+  left: -8px;                  /* move right */
+  font-size: 14px;            /* change text size */
+  font-family: 'Montserrat'; /* match font */
+  color: white;               /* text color */
+  letter-spacing: 1px;
+}
+
+hr.dotted {
+  border: none;                     /* Remove default border */
+  border-top: 2px dotted white;     /* Custom dotted line */
+  width: 106%;                       /* Adjust line length */
+  margin: -1px auto;                /* Center it and add spacing */
+  position: relative;
+  left: -37px;   /* Move it to the right */
+}
+
+hr.solid {
+  border: none;                     /* Remove default border */
+  border-top: 2px solid white;     /* Custom dotted line */
+  width: 473px;                       /* Adjust line length */
+  margin: -10px auto;                /* Center it and add spacing */
+  position: relative;
+  left: -7px;   /* Move it to the right */
+}
+
+
+
+    .right-grey-square {
+      position: absolute;        /* lets you move it freely */
+      top: 412px;                /* change to move up/down */
+      left: 682px;               /* change to move left/right */
+      width: 490px;              /* adjust width */
+      height: 532px;             /* adjust height */
+      background-color: #151515;    /* the square's color */
+      border-radius: 6px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+      box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.5);
+    }
+
+        .right-black-square {
+      position: absolute;        /* lets you move it freely */
+      top: 424px;                /* change to move up/down */
+      left: 695px;               /* change to move left/right */
+      width: 463px;              /* adjust width */
+      height: 7px;             /* adjust height */
+      background-color: #020202;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+    }
+    
+    .right-black-square-text {
+  position: relative;         /* lets you adjust position inside square */
+  top: -20px;                  /* move down */
+  left: -08px;                  /* move right */
+  font-size: 14px;            /* change text size */
+  font-family: 'Montserrat'; /* match font */
+  color: white;               /* text color */
+  letter-spacing: 1px;
+}
+
+
+.coco {
+  position: absolute;
+  top: 486px;
+  left: 695px;
+  width: 504px; /* a bit less than the grey square width */
+  padding: 0px; /* creates space between image and border */
+  border: 2px dotted rgb(177, 5, 28);
+  background-color: #151515;
+  border-radius: 2px;
+  box-sizing: border-box;
+  
+}
+.coco img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  filter: brightness(25%);
+  transition: filter 0.2s ease; /* Smooth transition */
+}
+
+.coco img:hover {
+  filter: brightness(55%);
+}
+
+    .right-title-square-text {
+  position: absolute;
+  top: -6px;                  /* move down */
+  left: 12px;                  /* move right */
+  font-size: 22px;            /* change text size */
+  font-family: 'Inter'; /* match font */
+  color: white;               /* text color */
+  text-shadow: 2px 2px #000000;
+  z-index: 2;          /* make sure it appears above the image */
+    }
+
+    .description-square-text {
+  position: relative;         /* lets you adjust position inside square */
+  top: 10px;                  /* move down */
+  left: 1px;                  /* move right */
+  font-size: 14px;            /* change text size */
+  font-family: 'Inter'; /* match font */
+  color: rgb(255, 255, 255);               /* text color */
+  margin-right: 3px;
+}
+
+
+        .black-streak {
+      position: absolute;        /* lets you move it freely */
+      top: 228px;                /* change to move up/down */
+      left: 244px;               /* change to move left/right */
+      width: 928px;              /* adjust width */
+      height: 110px;             /* adjust height */
+      background-color: #020202;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+      opacity: 0.8;
+    }
+
+        .left-black-streak {
+      position: absolute;        /* lets you move it freely */
+      top: 228px;                /* change to move up/down */
+      left: 244px;               /* change to move left/right */
+      width: 218px;              /* adjust width */
+      height: 110px;             /* adjust height */
+      background-color: #020202;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+    }
+
+    .black-streak-text {
+  position: absolute;
+  top: -30px;                  /* move down */
+  left: 606px;                  /* move right */
+  font-size: 40px;            /* change text size */
+  font-family: 'Oswald'; /* match font */
+  color: rgb(214, 3, 31);               /* text color */
+  z-index: 2;          /* make sure it appears above the image */
+    }
+
+    .black-streak-bottom-text {
+  position: absolute;
+  top: 62px;                  /* move down */
+  left: 552px;                  /* move right */
+  font-size: 14px;            /* change text size */
+  font-family: 'Inter'; /* match font */
+  color: rgb(255, 255, 255);               /* text color */
+  z-index: 2;          /* make sure it appears above the image */
+    }
+
+        .black-streak-bottomlower-text {
+  position: absolute;
+  top: 94px;                  /* move down */
+  left: 484px;                  /* move right */
+  font-size: 14px;            /* change text size */
+  font-family: 'Inter'; /* match font */
+  color: rgb(161, 161, 161);               /* text color */
+  z-index: 2;          /* make sure it appears above the image */
+    }
+
+
+    .vignette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* So it doesn't block clicks */
+  z-index: -6;
+
+  background: linear-gradient(to right, 
+    rgba(0, 0, 0, 0.6) 0%, 
+    rgba(0, 0, 0, 0) 15%, 
+    rgba(0, 0, 0, 0) 85%, 
+    rgba(0, 0, 0, 0.6) 100%);
+}
+
+           .black-background {
+      position: absolute;        /* lets you move it freely */
+      top: 832px;                /* change to move up/down */
+      left: 0px;               /* change to move left/right */
+      width: 1390px;              /* adjust width */
+      height: 1797px;             /* adjust height */
+      background-color: #000000be;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+      z-index: -2;
+    }
+
+               .black-background1 {
+      position: absolute;        /* lets you move it freely */
+      top: 777px;                /* change to move up/down */
+      left: 0px;               /* change to move left/right */
+      width: 1390px;              /* adjust width */
+      height: 15px;             /* adjust height */
+      background-color: #00000073;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+      z-index: -2;
+    }
+
+               .black-background2 {
+      position: absolute;        /* lets you move it freely */
+      top: 717px;                /* change to move up/down */
+      left: 0px;               /* change to move left/right */
+      width: 1390px;              /* adjust width */
+      height: 20px;             /* adjust height */
+      background-color: #0000003f;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+      z-index: -2;
+    }
+
+    .portfolio-grey-square {
+      position: absolute;        /* lets you move it freely */
+      top: 1102px;                /* change to move up/down */
+      left: 244px;               /* change to move left/right */
+      width: 928px;              /* adjust width */
+      height: 1502px;             /* adjust height */
+      background-color: #151515;    /* the square's color */
+      border-radius: 6px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+      box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+           .portfolio-black-square {
+      position: absolute;        /* lets you move it freely */
+      top: 12px;                /* change to move up/down */
+      left: 13px;               /* change to move left/right */
+      width: 902px;              /* adjust width */
+      height: 7px;             /* adjust height */
+      background-color: #020202;    /* the square's color */
+      border-radius: 2px;       /* soft edges (increase for rounder corners) */
+      padding: 20px;             /* space inside for text or elements */
+      color: white;              /* example text color */
+      font-family: Arial, sans-serif;
+      z-index: 3;
+    }
+
+
+        .portfolio-square-text {
+  position: relative;         /* lets you adjust position inside square */
+  top: -20px;                  /* move down */
+  left: -8px;                  /* move right */
+  font-size: 14px;            /* change text size */
+  font-family: 'Montserrat'; /* match font */
+  color: white;               /* text color */
+  letter-spacing: 1px;
+}
+
+
+
+
+.portfolio-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: flex-start;
+  margin-left: 258px; /* adjust this so left side stays in place */
+  margin-top: 870px;
+  max-width: 980px;   /* invisible right-side wall */
+
+}
+
+.portfolio-item {
+  flex: 0 0 230px;
+  height: 200px;
+  background-color: #2e2e2e;
+  position: relative; /* this lets you control image positioning inside */
+  overflow: hidden;   /* hides any part of the image that overflows */
+  z-index: 4;
+}
+
+.portfolio-image {
+  width: 100%;         /* or any size you want */
+  height: 100%;        /* keeps aspect ratio */
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.portfolio-image:hover {
+    filter:brightness(75%);
+}
+
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  cursor: pointer;
+}
+
+
+
+
+.site-footer {
+  background-color: #000000;
+  color: #a8a8a8;
+  text-align: center;
+  height: 70px;            /* Control height */
+  width: 100%;             /* Full width */
+  display: flex;
+  align-items: center;     /* Vertical centering */
+  justify-content: center;/* Horizontal centering */
+  font-family: 'Inter';
+  font-size: 12px;
+  margin-top: 55px;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Black bar background -->
+  <div class="navbar-bg" id="navbar-bg"></div>
+
+  <!-- Always visible white nav text -->
+  <div class="navbar-text">
+    <a href="#projects">Projects</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#">Products</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Section 1: Intro -->
+<section id="projects" style="height: 300px;">
+  <div class="left-grey-square">
+  </div>
+
+  <div class="left-light-square">
+    <div class="light-square-text">
+     <p><img src="SIDEICONS/2.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 10px; margin-left: -32px;"><b>Name:</b> Huey Ortega</p>
+     <hr class="dotted">
+     <p><img src="SIDEICONS/3.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 10px; margin-left: -32px;"><b>Username:</b> Draxile / Uhiroquois
+     <hr class="dotted">
+     <p><img src="SIDEICONS/4.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 10px; margin-left: -32px;"><b>Developer / Artist / Animator / Programmer</b>
+     <hr class="dotted">
+     <p><img src="SIDEICONS/5.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 10px; margin-left: -32px;"><b>Gender:</b> Male</p>
+     <hr class="dotted">
+     <p><img src="SIDEICONS/6.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 10px; margin-left: -32px;"><b>Location:</b> <img src="https://i.ibb.co/GvPP8pLC/image.png" alt="PH" style="height: 12px; vertical-align: middle; margin-right: 2px; margin-left: 2px;"></a>  Philippines (Filipino)</p>
+     <hr class="dotted">
+     <p><img src="SIDEICONS/7.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 10px; margin-left: -32px;"><b>Business:</b> <a href="mailto:hueysteven.ortega@gmail.com" style="color:white">hueysteven.ortega@gmail.com</style></a></p>
+     <hr class="dotted">
+     <p><img src="SIDEICONS/8.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 10px; margin-left: -32px;"><b>Skills:</b> Programming (C++, HTML, GML, JS)</p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Digital Graphic Design (Ps, Ae, An)</p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3D Modeling (Blockbench, Blender)
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artistic Composition / illustration</p>
+    </div>
+  </div>
+
+    <div class="left-black-square">
+    <div class="black-square-text">
+      <p><b>ABOUT</b></p>
+    </div>
+  </div>
+
+  <div class="right-grey-square">
+  </div>
+
+      <div class="right-black-square">
+    <div class="right-black-square-text">
+      <p><b>ONGOING PROJECTS</b></p>
+    </div>
+  </div>
+
+  <div class="coco">
+    <div class="right-title-square-text">
+    <p>Coco The Cereal Killer</p>
+    <hr class="solid">
+            <div class="description-square-text">
+      <p>A 2D bullet hell platformer set on a dystopian planet where defective robots are thrown away. You play as a cereal box mistakenly thrown away, fighting to escape.</p>
+    </div>
+  </div>
+  <img src="https://i.ibb.co/chKr7N2K/2025-05-18-137-Kleki.png" alt="2025-05-18-137-Kleki" width="503">
+  </div>
+
+    <div class="black-streak">
+      <div class="black-streak-text">
+        <p>DRAXILE</p>
+      </div>
+      <div class="black-streak-bottom-text">
+        <p><b>a.k.a “Uhiroquois” | “Huey Ortega”</b></p>
+      </div>
+            <div class="black-streak-bottomlower-text">
+        <p><b>3D & 2D Freelance Artist. Game Developer. IT Graduate</b></p>
+      </div>
+  </div>
+
+              <div class="left-black-streak">
+        <div class="logodraxile">
+          <img src="https://i.ibb.co/4RvPH6vB/logodraxile.png" alt="logodraxile" width="115" style="margin-left: 50px; margin-top: -3px;"></a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+  <!-- Section 2: Portfolio -->
+  <section id="portfolio" style="margin-top: 700px;">
+
+     
+<div class="black-background">
+</div>
+<div class="black-background1">
+</div>
+<div class="black-background2">
+</div>
+
+  <div class="portfolio-grey-square">
+
+
+    <div class="portfolio-black-square">
+      <div class="portfolio-square-text">
+        <p><b>MY PORTFOLIO</b></p>
+      </div>
+    </div>
+  </div>
+ </section>
+
+
+ <div id="lightbox-overlay" class="lightbox-overlay">
+  <img src="" alt="Expanded image" />
+</div>
+
+
+     <!-- LIGHTBOX FEATURE ADDED FOR THESE IMAGES -->
+      <div class="portfolio-container">
+  <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/character-designsheet.png" class="portfolio-image">
+  </div>
+  <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/death.png" class="portfolio-image">
+  </div>
+  <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/modelbox.gif" class="portfolio-image">
+  </div>
+  <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/106.jpeg" class="portfolio-image">
+  </div>
+  <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/lucy.png" class="portfolio-image">
+  </div>
+  <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/JACK.gif" class="portfolio-image">
+  </div>
+  <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/thewar.png" class="portfolio-image">
+  </div>
+  <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/chensow.jpeg" class="portfolio-image">
+  </div>
+    <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/marvel.png" class="portfolio-image">
+  </div>
+    <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/wardevilmodel.png" class="portfolio-image">
+  </div>
+    <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/foursubsystems.png" class="portfolio-image">
+  </div>
+    <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/robotboy.gif" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/Posed_war.gif" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/kira-killer.png" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/lucymodel.gif" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/kokusengojo.gif" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/officething.png" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/trypophobia.png" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/PIGG.png" class="portfolio-image">
+  </div>
+        <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/powerpuff.jpg" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/enemies.jpg" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/Chenso.gif" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/zurgtyrant.png" class="portfolio-image">
+  </div>
+      <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/springtrap.png" class="portfolio-image">
+  </div>
+        <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/monsterr.png" class="portfolio-image">
+  </div>
+        <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/cat.jpg" class="portfolio-image">
+  </div>
+        <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/SstaypuftEnemy.gif" class="portfolio-image">
+  </div>
+        <div class="portfolio-item">
+        <img src="PORTFOLIOIMAGES/draxileanimated.gif" class="portfolio-image">
+  </div>
+</div>
+  
+ 
+
+
+
+
+
+
+  <div class="vignette-overlay"></div>
+
+  <script>
+    const navbarBg = document.getElementById("navbar-bg");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbarBg.classList.add("visible");
+      } else {
+        navbarBg.classList.remove("visible");
+      }
+    });
+
+
+     const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".navbar-text a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100; // adjust based on navbar height
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.style.color = "white"; // reset all links
+      if (link.getAttribute("href") === "#" + current) {
+        link.style.color = "rgb(177, 5, 28)"; // active section link turns red
+      }
+    });
+  });
+
+
+
+  document.querySelectorAll('.portfolio-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      const lightbox = document.getElementById('lightbox-overlay');
+      const lightboxImg = lightbox.querySelector('img');
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+          document.body.style.overflow = 'hidden';  // disable scroll
+    });
+  });
+
+  document.getElementById('lightbox-overlay').addEventListener('click', () => {
+    document.getElementById('lightbox-overlay').style.display = 'none';
+      document.body.style.overflow = '';  // restore scroll
+  });
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = document.querySelector('.lightbox img');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', function () {
+            lightbox.classList.add('active');
+            lightboxImg.src = this.src;
+        });
+    });
+
+    // Close when clicking anywhere on the lightbox background
+    lightbox.addEventListener('click', function (e) {
+        if (e.target !== lightboxImg) {
+            lightbox.classList.remove('active');
+        }
+    });
+});
+
+
+  </script>
+
+
+<footer class="site-footer">
+  <p>© 2025 Draxile. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
